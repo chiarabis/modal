@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. Creare una finestra Dialog (Modal)</title>
+</head>
+<!--cos'è un Modal? è la finestra popup che compare al centro dello schermo per info e/o azioni aggiuntive da compiere-->
+<style>
+    body{
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-family: sans-serif;
+    }
+    #open-modal{
+        padding: 10px 15px;
+        margin-top: 30px;
+        background-color: violet;
+        border-radius: 2px;
+        border: 1px solid #400b40;
+        box-shadow: 1px 5px 10px 0 #400b40;
+        cursor: pointer;
+    }
+    #open-modal:hover{background-color: #400b40; color: violet;}
+    #modal{
+        height: 300px;
+        width: 300px;
+        background-color: white;
+        border: none;
+        border-radius: 2px;
+        display: none;
+        align-items: center;
+    }
+    #close-modal{
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 20px;
+        margin: 10px;
+        cursor: pointer;
+        float: right;
+        color: #4d4d4d;
+    }
+    .newsletter-field{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    h5{
+        text-align: center;
+        margin-top: 80px;
+    }
+    .newsletter-field button{
+        border: none;
+        background-color: violet;
+        color: #f0f0f0;
+        border-radius: 2px;
+        padding: 10px;
+        width: 80px;
+        cursor: pointer;
+        margin: 40px;
+    }
+    .newsletter-field button:hover{background-color: #400b40;}
+    .newsletter-field input{outline-color: violet;}
+</style>
+<body>
+    <button id="open-modal">Apri modal</button>
+    <div id="modal">
+        <button id="close-modal">x</button>
+        <div class="newsletter-field">
+            <h5>Iscriviti alla newsletter!</h5>
+            <input type="email"><button type="submit">OK</button>
+        </div>
+    </div>
+    <script>
+        const openBtn = document.getElementById("open-modal")
+        const closeBtn = document.getElementById("close-modal")
+        const modal=document.getElementById("modal")
+
+        openBtn.addEventListener("click", openModal)
+        closeBtn.addEventListener("click", closeModal)
+
+        function openModal(){
+            modal.style.display="block"
+        }
+        function closeModal(){
+            modal.style.display="none"
+        }
+    </script>
+</body>
+</html>
